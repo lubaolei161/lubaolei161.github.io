@@ -1,0 +1,50 @@
+// Menu
+// --------------------------------------------------
+.site-nav-toggle {
+  position: static;
+  float: right;
+}
+
+
+.menu {
+  float: center;
+  margin: 8px 0 0 0;
+
+  +mobile() {
+    margin: 20px 0 0 0;
+    padding: 0;
+  }
+
+  br { display: none; }
+
+  .menu-item {
+    margin: 0;
+    +mobile() { display: block; }
+  }
+
+  .menu-item a {
+    padding: 0 12px;
+    background: none;
+    border: none;
+    border-radius: 4px;
+    transition-property: background;
+
+    +mobile() {
+      text-align: left;
+    }
+
+        &:hover {
+        background: #003366;
+        color: white;
+        border-radius: 2px;
+    }
+  }
+
+  a::before {
+      display: none;
+
+      +mobile() { display: block; }
+    }
+
+  +mobile() { float: none; }
+}
