@@ -23,7 +23,7 @@ description: Hexo博客多台机器同步
 
 
 
-![BD5DE693-706B-414E-817C-75FA7DFA7CF4](/Users/mac/Desktop/BD5DE693-706B-414E-817C-75FA7DFA7CF4.png)
+![BD5DE693-706B-414E-817C-75FA7DFA7CF4](https://ws2.sinaimg.cn/large/006tKfTcgy1fiyq76le8yj30li0700u6.jpg)
 
 之后将各个pub 文件分别上传至对应的网站
 
