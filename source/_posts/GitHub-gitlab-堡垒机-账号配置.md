@@ -1,11 +1,11 @@
 ---
-title: "GitHub gitlab 堡垒机 账号配置"
+title: "github gitlab 堡垒机 账号配置"
 comments: true
 date: 2017-08-28
 type: "categories"
 categories: "配置"
 tags: #文章標籤 可以省略
-     - GitHub
+     - github
 description: Hexo博客多台机器同步
 ---
 
