@@ -542,7 +542,15 @@ css: css
 js: js
 images: images
 
-
+# Gitment
+ # Introduction: https://imsun.net/posts/gitment-introduction/
+gitment:
+  enable: true
+  githubID: lubaolei161
+  repo: lubaolei161.github.io
+  ClientID: f546cb35c3feca53a9ff
+  ClientSecret: aaddeaf97cbfb713e469f63a4ee78dec161135ed
+  lazy: false
 
 # Wechat Subscriber
 # wechat_subscriber:
