@@ -194,14 +194,14 @@ hexo g -d
 ##### 进入godaddy DNS 管理界面
 
 ##### 修改如下两个地方
-![1](https://github.com/lubaolei161/blogMaterial/blob/master/1.jpg?raw=true)
+![1](https://github.com/myAccount/blogMaterial/blob/master/1.jpg?raw=true)
 
 类型为A的地方，IP地址修改为Githup服务器ip地址，通过以下命令获取：
 ```bash
 ping github.io
 ```
 
-类型为CNAME的地方，值修改为博客地址 如：lubaolei161.github.io
+类型为CNAME的地方，值修改为博客地址 如：myAccount.github.io
 
 ##### 添加CNAME文件到Github对应的repository
 这里注意的是不要直接在github上建立这个文件，要在hexo的sources目录下新建个CNAME

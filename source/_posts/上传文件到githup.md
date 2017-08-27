@@ -16,7 +16,7 @@ description: #你對本頁的描述 可以省略
 初始界面如图：
 
 
-![d](https://github.com/lubaolei161/image_home/blob/master/image/1.jpg?raw=true)
+![d](https://github.com/myAccount/image_home/blob/master/image/1.jpg?raw=true)
 
 ### 打开git命令行工具
 #### 1. 到自己存放github项目的文件夹 我在本地文件夹为C:\github_folder，进入这个文件夹
@@ -27,14 +27,14 @@ $ cd github_folder/
 
 #### 2. 在自己本地clone这个仓库
 ``` bash
-git clone https://github.com/lubaolei161/blogMaterial
+git clone https://github.com/myAccount/blogMaterial
 
 ```
 
 
 #### 3. 进入clone 的这个文件夹子
 在Windows系统里可以直接进入这个文件夹，做你的操作，比如新建个文件夹，或者文件，如图
-![2](https://github.com/lubaolei161/image_home/blob/master/image/2.jpg?raw=true)
+![2](https://github.com/myAccount/image_home/blob/master/image/2.jpg?raw=true)
 
 ### 同步到github
 
@@ -53,4 +53,4 @@ git push origin master #上传到github
 ```
 
 可以看到发生了如下变化：
-![3](https://github.com/lubaolei161/image_home/blob/master/image/3.jpg?raw=true)
+![3](https://github.com/myAccount/image_home/blob/master/image/3.jpg?raw=true)

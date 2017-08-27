@@ -109,9 +109,9 @@ busuanzi_count:
 ```
 
 其中有三种数据，可以单独进行开关设置。 修改完之后可以看到效果
-![1](https://github.com/lubaolei161/blogMaterial/blob/master/Hexo%20Next%E4%B8%BB%E9%A2%98%E4%B8%8B%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE/1.jpg?raw=true)
+![1](https://github.com/myAccount/blogMaterial/blob/master/Hexo%20Next%E4%B8%BB%E9%A2%98%E4%B8%8B%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE/1.jpg?raw=true)
 
-![2](https://github.com/lubaolei161/blogMaterial/blob/master/Hexo%20Next%E4%B8%BB%E9%A2%98%E4%B8%8B%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE/2.jpg?raw=true)
+![2](https://github.com/myAccount/blogMaterial/blob/master/Hexo%20Next%E4%B8%BB%E9%A2%98%E4%B8%8B%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE/2.jpg?raw=true)
 
 ### 开启站内搜索功能
 NexT 支持集成 Swiftype、 微搜索、Local Search 和 Algolia，各种搜索配置官方文档均有说明，但是尝试了一下只有本地搜索用着比较顺手

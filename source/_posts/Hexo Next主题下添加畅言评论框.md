@@ -33,7 +33,7 @@ description: #你對本頁的描述 可以省略
 
 注册完后，登录进入畅言官网，获取你的畅言 app id 和 app key。
 
-<img src="https://github.com/lubaolei161/blogMaterial/blob/master/Hexo%20Next%E4%B8%BB%E9%A2%98%E4%B8%8B%E6%B7%BB%E5%8A%A0%E7%95%85%E8%A8%80%E8%AF%84%E8%AE%BA%E6%A1%86/1.jpg?raw=true" width="50%" height="50" />
+<img src="https://github.com/myAccount/blogMaterial/blob/master/Hexo%20Next%E4%B8%BB%E9%A2%98%E4%B8%8B%E6%B7%BB%E5%8A%A0%E7%95%85%E8%A8%80%E8%AF%84%E8%AE%BA%E6%A1%86/1.jpg?raw=true" width="50%" height="50" />
 
 <font color=#00FFFF >我不知道其他有没人发现，我反正是被坑的很惨，这里给我的APP key 和在畅言生成通用安装代码时候 conf 里面的值不一致，所以请大家确认一下，一致最好，不一致以conf值为准，不然会相互看不到评论 </font>
 ### Next主题开启畅言系统

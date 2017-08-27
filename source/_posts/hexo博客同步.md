@@ -22,7 +22,7 @@ hexo 发布到自己的master分支，然后将hexo源文件发布到hexo 分支
 ```
 
 // 在本地博客根目录下安装hexo
-git clone -b hexo https://github.com/lubaolei161/lubaolei161.github.io.git hexo
+git clone -b hexo https://github.com/myAccount/myAccount.github.io.git hexo
 
 npm install hexo
 // 初始化hexo

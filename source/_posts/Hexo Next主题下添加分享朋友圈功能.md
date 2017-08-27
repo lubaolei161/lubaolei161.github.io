@@ -38,7 +38,7 @@ jiathis:
 
 这一步完成之后，别人点链接看到的还是需要再次点击继续访问，也是因为域名没备案，目前没找到其他好的办法解决，算是美中不足吧。。
 
-<img src="https://github.com/lubaolei161/blogMaterial/blob/master/Hexo%20Next%E4%B8%BB%E9%A2%98%E4%B8%8B%E6%B7%BB%E5%8A%A0%E5%88%86%E4%BA%AB%E6%9C%8B%E5%8F%8B%E5%9C%88%E5%8A%9F%E8%83%BD/1.PNG?raw=true" width="50%" height="50%" />
+<img src="https://github.com/myAccount/blogMaterial/blob/master/Hexo%20Next%E4%B8%BB%E9%A2%98%E4%B8%8B%E6%B7%BB%E5%8A%A0%E5%88%86%E4%BA%AB%E6%9C%8B%E5%8F%8B%E5%9C%88%E5%8A%9F%E8%83%BD/1.PNG?raw=true" width="50%" height="50%" />
 
 
 
