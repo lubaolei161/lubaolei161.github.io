@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[github gitlab 堡垒机 账号配置]]></title>
     <url>%2F2017%2F08%2F28%2FGitHub-gitlab-%E5%A0%A1%E5%9E%92%E6%9C%BA-%E8%B4%A6%E5%8F%B7%E9%85%8D%E7%BD%AE%2F</url>
-    <content type="text"><![CDATA[需要在本机同时配置github gitlab 堡垒机SSH账号生成各种账号的rsa rsa.pub秘钥对命令：ssh-keygen -t rsa -C &quot;$your_email&quot; 生成的密钥对存在文件夹 ~/.ssh 中 为了区分不同的秘钥对，在生成后制定文件名时分别加后缀， 如github，gitlab，如图所示： 之后将各个pub 文件分别上传至对应的网站 在~/.ssh 中建立config 文件vim config 内容如下： 1234567891011121314151617181920host *ControlMaster autoControlPath ~/.ssh/master-%r@%h:%pHost js HostName ops-jumpserver-intra.yeshj.com Port 59155 User myUsername IdentityFile ~/.ssh/id_rsaServerAliveInterval 80Host github.com HostName github.com User myUsername IdentityFile ~/.ssh/id_rsa_githubHost gitlab.yeshj.com HostName gitlab.yeshj.com Port 22 User myUsername IdentityFile ~/.ssh/id_rsa_gitlab 这个文件用来映射秘钥与 git网站的关系，实际账号啥的自己根据情况填写 前两段是用来ssh js 登陆堡垒机用的 删除know_hosts文件当前这个文件删除，之后会重新生成 至此，配置结束，可以分别使用gitlab github了，同时可以快捷登陆公司堡垒机 本文地址： http://barrysite.me/2017/08/28/GitHub-gitlab-堡垒机-账号配置/]]></content>
+    <content type="text"><![CDATA[需要在本机同时配置github gitlab 堡垒机SSH账号生成各种账号的rsa rsa.pub秘钥对命令：ssh-keygen -t rsa -C &quot;$your_email&quot; 生成的密钥对存在文件夹 ~/.ssh 中 为了区分不同的秘钥对，在生成后制定文件名时分别加后缀， 如github，gitlab，如图所示： 之后将各个pub 文件分别上传至对应的网站 在~/.ssh 中建立config 文件vim config 内容如下： 1234567891011121314151617181920host *ControlMaster autoControlPath ~/.ssh/master-%r@%h:%pHost js HostName ops-jumpserver-intra.yeshj.com Port 59155 User myUsername IdentityFile ~/.ssh/id_rsaServerAliveInterval 80Host github.com HostName github.com User myUsername IdentityFile ~/.ssh/id_rsa_githubHost gitlab.yeshj.com HostName gitlab.yeshj.com Port 22 User myUsername IdentityFile ~/.ssh/id_rsa_gitlab 这个文件用来映射秘钥与 git网站的关系，实际账号啥的自己根据情况填写 前两段是用来ssh js 登陆堡垒机用的 删除know_hosts文件当前这个文件删除，之后会重新生成 测试githubssh -T git@github.com 至此，配置结束，可以分别使用gitlab github了，同时可以快捷登陆公司堡垒机 本文地址： http://barrysite.me/2017/08/28/GitHub-gitlab-堡垒机-账号配置/]]></content>
       <categories>
         <category>配置</category>
       </categories>
@@ -14,7 +14,7 @@
   <entry>
     <title><![CDATA[Hexo博客多台机器同步]]></title>
     <url>%2F2017%2F05%2F31%2Fhexo%E5%8D%9A%E5%AE%A2%E5%90%8C%E6%AD%A5%2F</url>
-    <content type="text"><![CDATA[思路hexo 发布到自己的master分支，然后将hexo源文件发布到hexo 分支 ，当换电脑之后拉下最新的hexo分支文件即可 准备工作不管是换到哪台电脑，nodeJs 还是要先装上，git也不必说 ，必然也要装上 之后就是选一个文件夹，然后clone 自己博客的hexo分支,并在这个文件夹下安装hexo以及hexo-deployer-git 1234567891011// 在本地博客根目录下安装hexogit clone -b hexo https://github.com/myAccount/myAccount.github.io.git hexonpm install hexo// 初始化hexonpm init// 安装依赖npm install// 安装部署相关的配置npm install hexo-deployer-git 填坑之前一直以为装的插件也要重装一遍，其实完全不不要，只要上面代码过一遍即可，还算方便 本文地址： http://barrysite.me/2017/05/31/hexo博客同步/]]></content>
+    <content type="text"><![CDATA[思路hexo 发布到自己的master分支，然后将hexo源文件发布到hexo 分支 ，当换电脑之后拉下最新的hexo分支文件即可 准备工作不管是换到哪台电脑，nodeJs 还是要先装上，git也不必说 ，必然也要装上 之后就是选一个文件夹，然后clone 自己博客的hexo分支,并在这个文件夹下安装hexo以及hexo-deployer-git 1234567891011// npm install hexo-cli g// 在本地博客根目录下安装hexogit clone -b hexo https://github.com/myAccount/myAccount.github.io.git hexonpm install hexo// 初始化hexonpm init// 安装依赖npm install// 安装部署相关的配置npm install hexo-deployer-git 填坑之前一直以为装的插件也要重装一遍，其实完全不不要，只要上面代码过一遍即可，还算方便 本文地址： http://barrysite.me/2017/05/31/hexo博客同步/]]></content>
       <categories>
         <category>github博客搭建</category>
       </categories>
