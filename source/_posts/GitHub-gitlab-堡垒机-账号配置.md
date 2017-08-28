@@ -69,6 +69,14 @@ Host gitlab.yeshj.com
 
 
 
+#### 测试github
+
+`ssh -T git@github.com`
+
+
+
+
+
 ----
 
 至此，配置结束，可以分别使用gitlab github了，同时可以快捷登陆公司堡垒机

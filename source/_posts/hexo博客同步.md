@@ -20,7 +20,7 @@ hexo 发布到自己的master分支，然后将hexo源文件发布到hexo 分支
 之后就是选一个文件夹，然后clone 自己博客的hexo分支,并在这个文件夹下安装hexo以及hexo-deployer-git
 
 ```
-
+// npm install hexo-cli g
 // 在本地博客根目录下安装hexo
 git clone -b hexo https://github.com/myAccount/myAccount.github.io.git hexo
 
