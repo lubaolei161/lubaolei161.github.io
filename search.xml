@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[github gitlab 堡垒机 账号配置]]></title>
+    <url>%2F2017%2F08%2F28%2FGitHub-gitlab-%E5%A0%A1%E5%9E%92%E6%9C%BA-%E8%B4%A6%E5%8F%B7%E9%85%8D%E7%BD%AE%2F</url>
+    <content type="text"><![CDATA[需要在本机同时配置github gitlab 堡垒机SSH账号生成各种账号的rsa rsa.pub秘钥对命令：ssh-keygen -t rsa -C &quot;$your_email&quot; 生成的密钥对存在文件夹 ~/.ssh 中 为了区分不同的秘钥对，在生成后制定文件名时分别加后缀， 如github，gitlab，如图所示： 之后将各个pub 文件分别上传至对应的网站 在~/.ssh 中建立config 文件vim config 内容如下： 1234567891011121314151617181920host *ControlMaster autoControlPath ~/.ssh/master-%r@%h:%pHost js HostName ops-jumpserver-intra.yeshj.com Port 59155 User myUsername IdentityFile ~/.ssh/id_rsaServerAliveInterval 80Host github.com HostName github.com User myUsername IdentityFile ~/.ssh/id_rsa_githubHost gitlab.yeshj.com HostName gitlab.yeshj.com Port 22 User myUsername IdentityFile ~/.ssh/id_rsa_gitlab 这个文件用来映射秘钥与 git网站的关系，实际账号啥的自己根据情况填写 前两段是用来ssh js 登陆堡垒机用的 删除know_hosts文件当前这个文件删除，之后会重新生成 至此，配置结束，可以分别使用gitlab github了，同时可以快捷登陆公司堡垒机 本文地址： http://barrysite.me/2017/08/28/GitHub-gitlab-堡垒机-账号配置/]]></content>
+      <categories>
+        <category>配置</category>
+      </categories>
+      <tags>
+        <tag>github</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Hexo博客多台机器同步]]></title>
+    <url>%2F2017%2F05%2F31%2Fhexo%E5%8D%9A%E5%AE%A2%E5%90%8C%E6%AD%A5%2F</url>
+    <content type="text"><![CDATA[思路hexo 发布到自己的master分支，然后将hexo源文件发布到hexo 分支 ，当换电脑之后拉下最新的hexo分支文件即可 准备工作不管是换到哪台电脑，nodeJs 还是要先装上，git也不必说 ，必然也要装上 之后就是选一个文件夹，然后clone 自己博客的hexo分支,并在这个文件夹下安装hexo以及hexo-deployer-git 1234567891011// 在本地博客根目录下安装hexogit clone -b hexo https://github.com/myAccount/myAccount.github.io.git hexonpm install hexo// 初始化hexonpm init// 安装依赖npm install// 安装部署相关的配置npm install hexo-deployer-git 填坑之前一直以为装的插件也要重装一遍，其实完全不不要，只要上面代码过一遍即可，还算方便 本文地址： http://barrysite.me/2017/05/31/hexo博客同步/]]></content>
+      <categories>
+        <category>github博客搭建</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Hexo文章简单加密访问]]></title>
+    <url>%2F2017%2F05%2F31%2Fpassword%2F</url>
+    <content type="text"><![CDATA[网上找的简单的加密文章的办法，通过alert 实现找到themes-&gt;next-&gt;layout-&gt;_partials-&gt;head.swig文件。按道理是添加在任何地方都行，但是推荐加在所有的标签之后，个人建议，仅做参考。以下是我加的代码： 12345678910&lt;script&gt; (function()&#123; if('&#123;&#123; page.password &#125;&#125;')&#123; if (prompt('请输入文章密码','') !== '&#123;&#123; page.password &#125;&#125;')&#123; alert('密码错误！'); history.back(); &#125; &#125; &#125;)();&lt;/script&gt; 使用时候，头部加入password标签，后面跟密码即可 本文地址： http://barrysite.me/2017/05/31/password/]]></content>
+      <categories>
+        <category>github博客搭建</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[通过 Hexo 插件插入音乐/视频]]></title>
+    <url>%2F2017%2F05%2F10%2Fvedio%2F</url>
+    <content type="text"><![CDATA[关于音乐，视频添加虽然可以通过使用html标签的方式加入音乐，视频什么的，但是逼格不够高，还是研究下hexo自带的播放器插件。。 插件这里需要使用两个播放器插件 hexo-tag-aplayer hexo-tag-dplayer 两款插件基于 [DIYgod] 编写的 html5 播放器 APlayer 和 DPlayer 开发。 安装网上大部分说直接安装以上两个插件就行，但是后来发现如果直接安装，然后使用标签在文章中是不能使用的，会提示找不到这两个标签这个错误。。 后来仔细研究了下，这连个hexo插件要想使用，还需要先安装aplayer和dpalyer 所以正确的安装步奏如下：1234npm install dplayer --savenpm install aplayer --savenpm install hexo-tag-dplayernpm install hexo-tag-aplayer 然后在文章中就可以正常使用了，关于标签的使用，可以到插件作者主页去查看如果提示缺少文件什么的，请参照这篇文章进行添加:参考 使用Demo以下简单的使用： 插入MP3:音乐代码：其中author,title 前两个标签必须添加，不然报错，图片可以不用添加1&#123;% aplayer "HUSH" "Lasse Lindh" "http://opj0cbfmf.bkt.clouddn.com/Part.3%20Lasse%20Lindh%20-%20Hush.mp3" "http://opj0cbfmf.bkt.clouddn.com/hush.jpg" "autoplay=false" %&#125; 效果如下： new APlayer({ element: document.getElementById("aplayer0"), narrow: false, autoplay: false, showlrc: 0, music: { title: "HUSH", author: "Lasse Lindh", url: "http://opj0cbfmf.bkt.clouddn.com/Part.3%20Lasse%20Lindh%20-%20Hush.mp3", pic: "http://opj0cbfmf.bkt.clouddn.com/hush.jpg", } }); 视频：视频代码：1&#123;% dplayer "url=http://home.ustc.edu.cn/~mmmwhy/GEM.mp4" "pic=http://home.ustc.edu.cn/~mmmwhy/GEM.jpg" "loop=yes" "theme=#FADFA3" "autoplay=false" "token=tokendemo" %&#125; 效果如下：var dplayer0 = new DPlayer({"element":document.getElementById("dplayer0"),"autoplay":0,"theme":"#FADFA3","loop":1,"video":{"url":"http://home.ustc.edu.cn/~mmmwhy/GEM.mp4","pic":"http://home.ustc.edu.cn/~mmmwhy/GEM.jpg"}}); 本文地址： http://barrysite.me/2017/05/10/vedio/]]></content>
+      <categories>
+        <category>github博客搭建</category>
+      </categories>
+      <tags>
+        <tag>github</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[python按指定大小完成文本切割 合并脚本]]></title>
+    <url>%2F2017%2F05%2F09%2Fpy_split%2F</url>
+    <content type="text"><![CDATA[123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899100101102103104105106107108109110111112113114115116#!/usr/bin/env python# coding=utf-8__author__ = 'BARRY'import osclass SplitText(): def __init__(self, filename, max_size): """初始化要分割的源文件名和分割文件大小""" self.filename = filename self.max_size = max_size def readFile(self,filename): with open(self.filename, 'r',encoding='utf-8') as in_file: for line in in_file: yield line def get_part_file_name(self, filename, part_num=1): """"获取分割后的文件名称：在源文件相同目录下建立输出文件夹split_out，然后将分割后的文件放到该路径下""" # temp_path = os.path.dirname(filename) # 获取文件的路径（不含文件名） temp_path, temp_out_name = os.path.split(filename) out_name, suffix = temp_out_name.split('.') out_path = temp_path + os.sep + "split_out" if not os.path.exists(out_path): # 如果临时目录不存在则创建 os.makedirs(out_path) part_file_name = out_path + os.sep + out_name + "["+str(part_num) +"]" "." + suffix return part_file_name def splitText(self): content = "" part_num=1 split_size=0 p = self.readFile(self.filename) try: while True: with open(self.get_part_file_name(self.filename, part_num), 'w',encoding='utf-8') as out_file: while True: content = next(p) # n+=1 # print(n) # print content split_size += len(content) # print(split_size) if split_size &lt; self.max_size: out_file.write(content) else: part_num += 1 split_size = 0 break # if n&lt;=max_line: # out_file.write(content) # else: # part_num+=1 # n=0 # break except StopIteration as e: print("文件处理完毕！")class JoinFile(): # 初始化需要合并文件的路径，合并的文件名 可选 def __init__(self, srcDir): self.srcDir = srcDir def find_all_subFile(self): file_list = os.listdir(self.srcDir ) # 找出所有可以合并的文件 根据‘。’前一位是‘]’查询 a = (name for name in file_list if os.path.splitext(name)[0][-1] == ']') return a def filenames_all(self): file_list = [] for file in self.find_all_subFile(): # print (file) temp_name = file.split('[')[0] file_name = temp_name + os.path.splitext(file)[1] # print(file_name) if file_name not in file_list: file_list.append(file_name) return file_list def join_single_file(self,filename): # 找出所有子文件 file_list = [name for name in self.find_all_subFile() if name.startswith(filename.split('.')[0])] file_list.sort() if not os.path.exists(self.srcDir+os.sep+ 'join_out' + os.sep): # 如果临时目录不存在则创建 os.makedirs(self.srcDir+os.sep+ 'join_out' + os.sep) for file in file_list: with open(self.srcDir+os.sep+ 'join_out' + os.sep+filename, 'a', encoding='utf-8') as f, open(self.srcDir + os.sep + file, 'r', encoding='utf-8') as read_in: for line in read_in: f.write(line) def join_all_files(self): for file in self.filenames_all(): self.join_single_file(file)if __name__ == "__main__": # splitFile=r"C:\Users\w\PycharmProjects\Q1\function\characterTest.py" # splitSize=500 # sf = SplitText(splitFile,splitSize) # sf.splitText() src=r"C:\Users\w\PycharmProjects\Q1\function\split_out" file="characterTest.py" sf = JoinFile(src) # sf.join_single_file(file) sf.join_all_files() 本文地址： http://barrysite.me/2017/05/09/py_split/]]></content>
+      <categories>
+        <category>python</category>
+      </categories>
+      <tags>
+        <tag>脚本</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Hexo Next主题增加留言页]]></title>
+    <url>%2F2017%2F05%2F08%2Fhexo%E7%BD%91%E7%AB%99NexT%E4%B8%BB%E9%A2%98%E5%A2%9E%E5%8A%A0%E7%95%99%E8%A8%80%E9%A1%B5%2F</url>
+    <content type="text"><![CDATA[修改_config.yml找到你NexT主题_config.yml（主意是NexT主题的_config.yml，不是hexo站点目录下的_config.yml），文件路径your-hexo-site/themes/next/_config.yml，添加 guestbook 到 menu 中，如下: 123456789menu: home: / categories: /categories # about: /about archives: /archives tags: /tags guestbook: /guestbook # sitemap: /sitemap.xml # commonweal: /404.html 修改zh-Hans.yml找到你NexT主题zh-Hans.yml文件（我的网站是简体语言的），文件路径your-hexo-site/themes/next/languages/zh-Hans.yml，添加 guestbook: 留言 到 menu 中，如下: 1234567891011menu: home: 首页 archives: 归档 categories: 分类 tags: 标签 about: 关于 search: 搜索 schedule: 日程表 sitemap: 站点地图 commonweal: 公益404 guestbook: 留言 新建页面新建一个 guestbook 页面：1hexo new page "guestbook" 之后会在source 目录下生成一个gustbook文件夹，并自动创建index.md ，可以修改里面内容12345---title: 给我留言date: 2017-05-08 10:31:30comments: true--- title 后面内容默认是gustbook，我改为了给我留言 ,因为之前添加过畅言系统，针对其他归档，标签界面，我都是设定为comments：false,这里改为true，就可以使用畅言的评论系统完成留言板的功能了. 本文地址： http://barrysite.me/2017/05/08/hexo网站NexT主题增加留言页/]]></content>
+      <categories>
+        <category>github博客搭建</category>
+      </categories>
+      <tags>
+        <tag>github</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Hexo Next主题下添加分享朋友圈功能]]></title>
+    <url>%2F2017%2F05%2F07%2FHexo%20Next%E4%B8%BB%E9%A2%98%E4%B8%8B%E6%B7%BB%E5%8A%A0%E5%88%86%E4%BA%AB%E6%9C%8B%E5%8F%8B%E5%9C%88%E5%8A%9F%E8%83%BD%2F</url>
+    <content type="text"><![CDATA[偶尔写点东西还是需要分享下到朋友圈啥的，但是现在天朝管制比较厉害，像为知笔记，以前免费版本就可以分享笔记到朋友圈，现在都要收费了，印象笔记在天朝无论是不是会员，这功能就直接给阉割了。。那自己的博客难道不能了么，大约查了下，如果想分享，域名还要去备案，我靠，备案，那得多麻烦。。或者自己接微信API开发吧，那就头大了。 然而，其实有个很方便的第三方插件就能实现：jiathis 注册jiathis帐号首先登录jiathis官方网站,然后注册帐号，直接生成分享代码，大小自己选择。其实这段代码在Next文件中已经有了，只要记住自己的uid即可 修改jiathis.swig文件打开next主题下的C:\hexo\themes\next\layout\_partials\share\jiathis.swig文件，可以自己选择需要添加到分享到哪些地方，不要的就删除 修改主题配置文件找到share属性并设置jiathis为true ，莫有就在配置文件中添加12345# Sharejiathis: enable: true# Warning: JiaThis does not support https. add_this_id: yourUID 需要注意的是仅支持http，还好我域名能用。。不然又得找其他方法了。。展示效果 分享到微信朋友圈针对微信分享，这里要通过手机扫描二维码，然后点击继续访问，转换为手机预览之后，然后再右上角分享，之后就可以在朋友圈看到自己的内容了。。 这一步完成之后，别人点链接看到的还是需要再次点击继续访问，也是因为域名没备案，目前没找到其他好的办法解决，算是美中不足吧。。 以上设置都只针对我自己的环境，所用Next的版本为5.1，个别版本可能有所不同 本文地址： http://barrysite.me/2017/05/07/Hexo Next主题下添加分享朋友圈功能/]]></content>
+      <categories>
+        <category>github博客搭建</category>
+      </categories>
+      <tags>
+        <tag>github</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Hexo Next主题下添加畅言评论框]]></title>
+    <url>%2F2017%2F05%2F07%2FHexo%20Next%E4%B8%BB%E9%A2%98%E4%B8%8B%E6%B7%BB%E5%8A%A0%E7%95%85%E8%A8%80%E8%AF%84%E8%AE%BA%E6%A1%86%2F</url>
+    <content type="text"><![CDATA[关于畅言在写下面内容的时候，本来我是打算用畅言的，但是网站不备案，畅言只能用15天，所以看大家是不是备案了 安装畅言时候也有很多坑，最恶心的就是相互不能看到评论，然后就是多个页面共用一个评论，查啊查，改啊改，后来才解决。。以下教程都是血的教训的总结啊。。 大多数在github博客上要添加评论框，都是添加多说评论框，但是命苦吧，等我想添加它的时候才发现，多说已经要倒下了，默哀三分钟。 之后选择了畅言评论框，具体添加方法如下 注册畅言帐号进入畅言官网 , 这里进入的其实是快站，他们是一家，于是我就注册了快站帐号。 并同时新建了一个站点，后面切换到畅言就可以使用评论服务了 登录并进入畅言后台注册完后，登录进入畅言官网，获取你的畅言 app id 和 app key。 我不知道其他有没人发现，我反正是被坑的很惨，这里给我的APP key 和在畅言生成通用安装代码时候 conf 里面的值不一致，所以请大家确认一下，一致最好，不一致以conf值为准，不然会相互看不到评论 Next主题开启畅言系统很多人会说需要把畅言官网通用安装密码拷贝下来，然后新建评论模板啥的，这里其实我使用的Next5.1主题里面已经安装好了多个第三方评论系统，包括畅言，安装的目录在：C:\hexo\themes\next\layout\_third-party\comments\changyan.swig 如果没有，请自行到该文件夹创建模板 假设已经有了，这里什么都不用修改，直接进行主题中畅言系统的开启配置即可 打开主题配置文件：C:\hexo\themes\next\_config.yml 找到如下为知并修改添加APPKEY,APPID 12345# changyanchangyan: enable: true appid: 你的appid appkey: 你的appkey 完成之后，重新hexo d -g 就可以看到文章里显示评论框了。但是这里并不完美，使用起来有几个bug，一是多个文章共用一个评论，二就是表情那个框不能用，接下来修改下以下文件就行C:\hexo\themes\next\layout\_partials\comments.swig 打开并找到如下位置并修改：123&#123;% elseif theme.changyan.appid and theme.changyan.appkey %&#125; &lt;div id="SOHUCS" sid= "&#123;&#123; page.permalink &#125;&#125;" style="padding: 0px 20px 0px 30px;"&gt;&lt;/div&gt; &#123;% endif %&#125; 之后保存，重新hexo d -g tips确保每篇文章开头部分front-matter 中添加了 comments: true 不然是看不到评论的关闭多余评论博客界面中目录，归档，标签里面可能也会有评论框出现，这里需要将C:\hexo\source\里面对应的categories,tags,about页面中的三个index.md 文件分别修改，这里的三个文件是控制这三类文件默认是统一配置，比如我不需要tags里面有评论，直接在tags目录下的index.md 添加123456---title: tagstype: "tags"date: 2017-05-05 09:02:17comments: false--- 即可 评论框配置至于评论框外表颜色这些主题类型的设置，其实是在畅言网站里面设置的畅言后台管理-系统设置-PC版设置-主题样式中调节 如果以上内容帮到了你，请打赏点如何？^^ 本文地址： http://barrysite.me/2017/05/07/Hexo Next主题下添加畅言评论框/]]></content>
+      <categories>
+        <category>github博客搭建</category>
+      </categories>
+      <tags>
+        <tag>github</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Github+Hexo+NEXT主题+域名绑定 博客搭建全记录]]></title>
+    <url>%2F2017%2F05%2F07%2FGithub%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%2F</url>
+    <content type="text"><![CDATA[Hexo是一个快速、简洁且高效的博客框架，而Github是一个免费的代码托管工具，利用Github Page可以免费创建一个静态网站。下面将介绍如何使用Hexo和Github，在Windows环境中搭建自己的微博 安装和配置Hexo及Github安装Hexo安装Hexo前，需要安装以下： Node.js 下载地址 Git 下载地址 这里用迅雷下速度比较快，给的链接是64位的 如果要32位的自行百度这里提供个githup for win的图形化客户端，百度云下载：Git for win 但是并不建议使用。。玩git 还是用git bash 方式比较高大上~~ 如果已经安装完成以上程序，打开Git-bash，输入1npm install -g hexo-cli 即可完成Hexo的安装。 使用Hexo进行本地建站选择一个本地的文件夹，如C:\hexo 输入123hexo init C:/hexocd C:/hexonpm install 如果hexo安装成功，则在C:\hexo文件夹下的文件目录为12345678.├── _config.yml // 网站的配置信息，你可以在此配置大部分的参数。├── package.json ├── scaffolds // 模板文件夹。当你新建文章时，Hexo会根据scaffold来建立文件。├── source // 存放用户资源的地方| ├── _drafts| └── _posts└── themes // 存放网站的主题。Hexo会根据主题来生成静态页面。 详细文件或文件夹的具体含义见 Hexo官方文档 之后输入1hexo server 此时会启动本地部署好的默认的博客网站 地址是：http://localhost:4000/不出意外 这里应该是没啥问题的。。 创建Github账号访问Github官网进行注册 ，这里没啥好说的。 创建与账号同名的Repository一定要同名的Repository，比如帐号是myid,那新建的Repository名称应该是myid.github.io 配置SSH(1) 生成SSH检查是否已经有SSH Key，打开Git Bash，输入 cd ~/.ssh如果没有这个目录，则生成一个新的SSH，输入1ssh-keygen -t rsa -C "your e-mail" 其中，your e-mail是你注册Github时用到的邮箱。 然后接下来几步都直接按回车键，最后生成如下 (2) 复制公钥内容到Github账户信息中打开~/.ssh/id_rsa.pub文件，复制里面的内容； 打开Github官网，登陆后进入到个人设置(点击头像-&gt;setting)，点击右侧的SSH Keys，点击Add SSH key；填写title之后，将之前复制的内容粘贴到Key框中，最后点击Add key即可。 (3) 测试SSH是否配置成功输入1ssh -T git@github.com 如果显示以下，则说明ssh配置成功。12Hi username! You&apos;ve successfully authenticated, but GitHub does notprovide shell access. (4) 配置github 账户12git config --global user.name "username"git config --global user.email "email" 配置完之后输入：1git config --list查看已设配置 看username ,email是不是都对了 将网站发布到Github的同名repository中 打开C:\Hexo文件夹中的_config.yml文件，找到如下位置，填写12345# Deployment## Docs: http://hexo.io/docs/deployment.htmldeploy: type: git repo: git@github.com:MyGithub/MyGithub.github.io 注： (1) 其中MyGithub替换成你的Github账户; (2)注意在yml文件中，:后面都是要带空格的。 此时，通过访问http://MyGithub.github.io可以看到默认的Hexo首页面（与之前本地测试时一样）。 选择Hexo主题及发表文章(1) 下载Next主题我自己用的是Next主题，有很多版本，我没有使用最新的，用了个5.1.1版本 下载地址 下载之后解压，重命名为next,拷贝到C:\hexo\themes 目录中即可 (2) 修改网站的主题为Next打开C:\Hexo下的_config.yml文件，找到theme字段，将其修改为next1234# Extensions## Plugins: http://hexo.io/plugins/## Themes: http://hexo.io/themes/theme: next (3) 本地验证是否可用输入1hexo s --debug 访问本地网站http://localhost:4000/，确认网站主题是否切换为Next. (4) 更新Github在git中进入网站根目录123$ cd c:/hexo$ hexo -g #编译本地内容$ hexo -d #发布到github 这里可能会报错，如果提示需要安装hexo-deployer-git插件，就执行以下语句：1$ npm install hexo-deployer-git 之后重新部署发布即可 发布文章这里可以参考hexo的官方文档，通过命令的形式来玩1hexo n "name of the new post" 回车后，在source文件夹下的_post文件夹下，可以看到新建了一个name of the new post.md的文件也可以到C:\hexo\source_posts 目录下直接新建.md 结尾的文件就可以了，所以平时如果写了markdown格式的文档可以拷贝到这个路径下直接就发布了 完了之后走一遍：1hexo g -d 关于文章，注意需要使用markdown语法进行书写,这里推荐一个markdown的简明语法介绍 Goddady 域名与github博客地址绑定截止到目前为止，你应该可以通过访问http://MyGithub.github.io来看到以上创建的网站了。 但是，如何拥有一个属于自己的域名地址，并将其指向在Github上所创建的网站呢？ 注册域名我选择了国外的Goddady进行域名的注册 花了我29大洋申请了个域名barrysite.me,怎么注册买东西这里不说。只谈绑定操作 进入godaddy DNS 管理界面修改如下两个地方 类型为A的地方，IP地址修改为Githup服务器ip地址，通过以下命令获取：1ping github.io 类型为CNAME的地方，值修改为博客地址 如：myAccount.github.io 添加CNAME文件到Github对应的repository这里注意的是不要直接在github上建立这个文件，要在hexo的sources目录下新建个CNAME内容就是你购买的域名,如我的：1barrysite.me 之后重新部署发布即可。 至此，可以通过自己的域名直接访问博客了。我的博客地址 Hexo Next主题下基本配置列举了安装之后如何订制你的博客，请参考我的另一篇文章：Hexo Next主题下基本配置 本文地址： http://barrysite.me/2017/05/07/Github博客搭建/]]></content>
+      <categories>
+        <category>github博客搭建</category>
+      </categories>
+      <tags>
+        <tag>github</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Hexo Next主题下基本配置]]></title>
+    <url>%2F2017%2F05%2F07%2FHexo%20Next%E4%B8%BB%E9%A2%98%E4%B8%8B%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE%2F</url>
+    <content type="text"><![CDATA[关于Hexo 以及Next的一些基本设置参考官方文档 Hexo Next 主要针对以下几个地方稍微记录一下： 头像设置 打赏功能 首页文章缩进 网站图标设置 增加评论框服务 添加站点数据统计功能 开启站内搜索功能 Hexo Next主题增加留言页 Hexo Next主题下添加分享朋友圈功能 安装hexo-addlink插件，文末添加版权声明 头像设置这里说的头像是侧边栏简介里的个人头像，如果不做设置显示的是空人头建了博客，啥事也没干，二话不说先上头像，官方Next文档里虽然写了，但是我怎么试都没成功，也可能长的丑。。 我的办法如下： 其实在hexo/public/images文件夹下面有avatar.gif 文件，这个文件就是侧边栏的空人头图像，直接把自己的头像改名为这个文件并替换，重新提交发布即可 打赏功能修改Next的主题配置文件hexo/themes/next/_config.yml 添加123reward_comment: 生活不易，求打赏红包~~wechatpay: /uploads/wechat-reward-image.JPG# alipay: /path/to/alipay-reward-image 我只添加了微信打赏，按需吧。。 需要上传二维码，直接上传到了hexo/public/uploads 下面即可 首页文章缩放文章多了如果首页完全显示那是很蛋疼的，需要设置一下修改Next的主题配置文件hexo/themes/next/_config.yml,找到如下属性并设置为true123auto_excerpt: enable: true length: 150 网站图标设置就是网址打开时候地址栏里的图标，不设置一个总感觉好low不用修改任何配置文件，直接拿自己的图标文件命名为favicon.ico 上传到hexo/source文件夹下即可 增加评论框服务以前大多数人都用多说，但是多说7月份就关闭了，所以可以取代的，就是disqus,网易云跟帖,畅言，友言，来必力 disqus国外的，天朝言论不自由，管制了，墙了，别折腾了畅言：本来想用，但是要备案，不然只能15天。。算了。。当然你要是备案了，想装的话可以参考我另一篇文章：畅言安装指南友言：参考官方配置，很简单，但是我就是不能正常显示。。也没解决，放弃了来必力：韩国的，可以用，我折腾了下，一直不能成功注册这网站，不知道是不是我网络问题，配置也是很简单的，哪天vpn好了我再试试吧网易云跟帖： 其它因为各种原因都让我放弃了，虽然不咋地，但是确实安装很简单，一行代码就搞定了，使用测试了一下也没什么bug ，就是它了。。 装个评论服务，我踩的雷已经可以炸掉一做碉堡了，不得不吐槽啊。。 下面就说下网易云跟帖安装： 官方配置里其实有，我摘录下： 登陆 网易云跟帖,注册帐号，然后基本设置一下，然后在获取代码–app sdk 一栏获取你的APP KEY,也就是 Product Key。 编辑 主题配置文件， 编辑 gentie_productKey 字段，设置如下：1gentie_productKey: #your-gentie-product-key 之后就可正常使用了。。。 添加站点数据统计功能 站点访问统计 文章阅读统计 最简单的方法就是直接修改主题配置菜单添加 不蒜子统计插件,找到并修改如下： 123456789101112131415busuanzi_count: # count values only if the other configs are false enable: true # custom uv span for the whole site site_uv: true site_uv_header: &lt;i class="fa fa-user"&gt;&lt;/i&gt;本站访客数 site_uv_footer: 人次 # custom pv span for the whole site site_pv: true site_pv_header: &lt;i class="fa fa-eye"&gt;&lt;/i&gt;本站总访问量 site_pv_footer: 次 # custom pv span for one page only page_pv: true page_pv_header: &lt;i class="fa fa-eye"&gt;&lt;/i&gt;阅读次数 page_pv_footer: 次 其中有三种数据，可以单独进行开关设置。 修改完之后可以看到效果 开启站内搜索功能NexT 支持集成 Swiftype、 微搜索、Local Search 和 Algolia，各种搜索配置官方文档均有说明，但是尝试了一下只有本地搜索用着比较顺手 配置也简单，如下： 1. 安装 hexo-generator-searchdb，在站点的根目录下执行以下命令：1$ npm install hexo-generator-searchdb --save 2. 站点配置文件，新增以下内容到任意位置：经测试，这一步可以不做，不然多生成一个search.xml 冲突12345search: path: search.xml field: post format: html limit: 10000 3. 主题配置文件，启用本地搜索功能：123# Local searchlocal_search: enable: true Hexo Next主题增加留言页参考：Hexo Next主题增加留言页 Hexo Next主题下添加分享朋友圈功能参考： Hexo Next主题下添加分享朋友圈功能 安装hexo-addlink插件，文末添加版权声明安装个插件，然后稍微配置下，就可以在每篇文章末加入自己的版权声明1$ npm install hexo-addlink --save 配置：_config.yml增加如下信息：123addlink: before_text: hello # text before the post link after_text: bye # text after the post link 比如我的：123addlink: before_text: 本文出自Barry的博客 # text before the post link after_text: 欢迎转载，转载请注明出处！ # text after the post link 之后重新发布就可以看到效果了 以上设置都只针对我自己的环境，所用Next的版本为5.1，个别版本可能有所不同 本文地址： http://barrysite.me/2017/05/07/Hexo Next主题下基本配置/]]></content>
+      <categories>
+        <category>github博客搭建</category>
+      </categories>
+      <tags>
+        <tag>github</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[上传文件到github]]></title>
+    <url>%2F2017%2F05%2F06%2F%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6%E5%88%B0githup%2F</url>
+    <content type="text"><![CDATA[创建自己的github资源库登录自己的github帐号，然后创建资源库，这里我随意创建了 blogMaterial 仓库 初始界面如图： 打开git命令行工具1. 到自己存放github项目的文件夹 我在本地文件夹为C:\github_folder，进入这个文件夹1$ cd github_folder/ 2. 在自己本地clone这个仓库1git clone https://github.com/myAccount/blogMaterial 3. 进入clone 的这个文件夹子在Windows系统里可以直接进入这个文件夹，做你的操作，比如新建个文件夹，或者文件，如图 同步到github执行命令：123456789git add * #可以将当前目录下所有改动都加到待提交状态git add [文件夹名称] #将该文件夹内容加到待提交状态git add filename #单个的文件 当然也可以用通配符啥的 如*.txtgit status #可以查看下有那些发生了改动git commit -m "测试" #提交改动git push origin master #上传到github 可以看到发生了如下变化： 本文地址： http://barrysite.me/2017/05/06/上传文件到githup/]]></content>
+      <categories>
+        <category>github学习</category>
+      </categories>
+      <tags>
+        <tag>github</tag>
+      </tags>
+  </entry>
+</search>
