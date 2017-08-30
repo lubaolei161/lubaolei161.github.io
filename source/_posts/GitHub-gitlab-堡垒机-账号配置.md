@@ -6,7 +6,7 @@ type: "categories"
 categories: "配置"
 tags: #文章標籤 可以省略
      - github
-description: Hexo博客多台机器同步
+description: 
 
 ---
 

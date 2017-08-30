@@ -1,0 +1,55 @@
+---
+title: " mac iterm2 安装 lrzsz rz sz命令"
+comments: true
+date: 2017-08-30
+type: "categories"
+categories: "配置"
+tags: #文章標籤 可以省略
+     - mac
+description: iterm2 加入sz rz命令支持
+
+---
+
+
+
+
+
+### mac需要先安装brew
+
+执行：
+
+```shell
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+```
+
+
+
+### 安装
+
+1. Install lrzsz on OSX: `brew install lrzsz`
+2. Save the `iterm2-send-zmodem.sh` and `iterm2-recv-zmodem.sh` scripts in `/usr/local/bin/`
+3. Set up Triggers in iTerm 2 like so:
+
+```Shell
+    Regular expression: rz waiting to receive.\*\*B0100
+    Action: Run Silent Coprocess
+    Parameters: /usr/local/bin/iterm2-send-zmodem.sh
+    Instant: checked
+
+    Regular expression: \*\*B00000000000000
+    Action: Run Silent Coprocess
+    Parameters: /usr/local/bin/iterm2-recv-zmodem.sh
+    Instant: checked
+```
+
+
+
+以上第三点设置位置：
+
+![QQ20170830-215600](/Users/mac/Desktop/QQ20170830-215600.png)
+
+![QQ20170830-215629](/Users/mac/Desktop/QQ20170830-215629.png)
+
+
+
+参考文档：https://github.com/mmastrac/iterm2-zmodem
