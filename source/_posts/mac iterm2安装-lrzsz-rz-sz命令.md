@@ -46,9 +46,9 @@ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/
 
 以上第三点设置位置：
 
-![QQ20170830-215600](/Users/mac/Desktop/QQ20170830-215600.png)
+![QQ20170830-215600](https://ws1.sinaimg.cn/large/006tNc79gy1fj23qc274qj30pi0fsace.jpg)
 
-![QQ20170830-215629](/Users/mac/Desktop/QQ20170830-215629.png)
+![QQ20170830-215629](https://ws2.sinaimg.cn/large/006tNc79gy1fj23qg4gd9j30mc09w0tg.jpg)
 
 
 
