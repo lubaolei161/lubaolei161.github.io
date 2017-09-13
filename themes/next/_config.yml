@@ -101,7 +101,7 @@ font:
   headings:
     external: true
     family: Roboto Slab
-    # size: 
+    # size:
 
   # 文章字体
   posts:
@@ -305,14 +305,14 @@ gentie_productKey: 4832d08e174e4dcfa118bf191c374d28
 
 # changyan
 changyan:
-  
+
   enable: false
   appid:  cysYRlheR
   appkey: 7dd28b609484164fea1ea439cad5d5c0
 
 # Support for youyan comments system.
 # You can get your uid from http://www.uyan.cc
-# youyan_uid: 
+# youyan_uid:
 
 # youyan_uid: 2132805
 # <!-- UY BEGIN -->
