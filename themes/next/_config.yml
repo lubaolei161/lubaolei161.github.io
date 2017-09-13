@@ -548,16 +548,23 @@ images: images
 
 # Support for Gitment comments system.
 # Github https://github.com/imsun/gitment
-gitment:
-  enable: true
-  username: lubaolei161
-  client_id: b4f5c6745356a34b6bbc
-  client_secret: ac29c112b6df19d608431d46db3eac94d60c6e85
+
 # Wechat Subscriber
 # wechat_subscriber:
 #   enabled: true
 #   qcode: /uploads/wechat-qcode.jpg
 #   description: 生活不易，求打赏红包~~
+
+
+# Gitment
+# Introduction: https://imsun.net/posts/gitment-introduction/
+gitment:
+  enable: true
+  githubID: lubaolei161
+  repo: lubaolei161.github.io
+  ClientID: b4f5c6745356a34b6bbc
+  ClientSecret: ac29c112b6df19d608431d46db3eac94d60c6e85
+  lazy: true
 
 reward_comment: 生活不易，求打赏红包~~
 wechatpay: /uploads/wechat-reward-image.JPG
