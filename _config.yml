@@ -99,7 +99,3 @@ algolia:
   adminApiKey: '4eb0e21e8d005b08c1ddce3b6f6fdbff'
   indexName: 'barrysite'
   chunkSize: 5000
-
-addlink:
-  before_text:  # text before the post link
-  after_text:
