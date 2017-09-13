@@ -1,38 +1,21 @@
-
-{% if theme.gitment.enable %}
-   {% set owner = theme.gitment.githubID %}
-   {% set repo = theme.gitment.repo %}
-   {% set cid = theme.gitment.ClientID %}
-   {% set cs = theme.gitment.ClientSecret %}
-   <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
-   <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
-   {% if not theme.gitment.lazy %}
-       <script type="text/javascript">
-           var gitment = new Gitment({
-               id: window.location.pathname,
-               owner: '{{owner}}',
-               repo: '{{repo}}',
-               oauth: {
-                   client_id: '{{cid}}',
-                   client_secret: '{{cs}}',
-               }});
-           gitment.render('gitment-container');
-       </script>
-   {% else %}
-       <script type="text/javascript">
-           function ShowGitment(){
-               document.getElementById("gitment-display-button").style.display = "none";
-               document.getElementById("gitment-container").style.display = "block";
-               var gitment = new Gitment({
-                   id: document.location.href,
-                   owner: '{{owner}}',
-                   repo: '{{repo}}',
-                   oauth: {
-                       client_id: '{{cid}}',
-                       client_secret: '{{cs}}',
-                   }});
-               gitment.render('gitment-container');
-           }
-       </script>
-   {% endif %}
+{% if not (theme.duoshuo and theme.duoshuo.shortname) and not theme.duoshuo_shortname and not (theme.disqus.enable and theme.disqus.shortname) and  not theme.gentie_productKey and not theme.changyan.enable %}
+	{% if page.comments and theme.gitment.enable and theme.gitment.username and theme.gitment.client_id and theme.gitment.client_secret %}
+		{% set username = theme.gitment.username %}
+		{% set client_id = theme.gitment.client_id %}
+		{% set client_secret = theme.gitment.client_secret %}
+		<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+		<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+		<script>
+			var gitment = new Gitment({
+			  //id: '页面 ID',
+			  owner: '{{username}}',
+			  repo: '{{username}}.github.io',
+			  oauth: {
+				client_id: '{{client_id}}',
+				client_secret: '{{client_secret}}'
+			  }
+			});
+			gitment.render('gitment_container');
+		</script>
+	{% endif %}
 {% endif %}

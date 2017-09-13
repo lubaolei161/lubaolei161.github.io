@@ -21,13 +21,8 @@
         </noscript>
       </div>
 
-      {% elseif theme.gitment.enable %}
-      {% if theme.gitment.lazy %}
-        <div onclick="ShowGitment()" id="gitment-display-button">{{  __('gitmentbutton') }}</div>
-        <div id="gitment-container" style="display:none"></div>
-      {% else %}
-        <div id="gitment-container"></div>
-      {% endif %}
+      {% elseif theme.gitment.enable and theme.gitment.username and theme.gitment.client_id and theme.gitment.client_secret %}
+    <div id="gitment_container"></div>
   {% endif %}
   </div>
 {% endif %}
