@@ -548,10 +548,9 @@ gitment:
   enable: true
   githubID: lubaolei161
   repo: lubaolei161.github.io
-  client_id: f546cb35c3feca53a9ff
-  client_secret: aaddeaf97cbfb713e469f63a4ee78dec161135ed
+  client_id: dd7ac48e8852c179220d
+  client_secret: c5bfc793d11bb94b425e9c228e0b70d2145ae099
   lazy: false
-
 
 # Wechat Subscriber
 # wechat_subscriber:
