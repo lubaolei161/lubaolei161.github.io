@@ -22,8 +22,7 @@
       </div>
     {% elseif theme.hypercomments_id %}
       <div id="hypercomments_widget"></div>
-    {% elseif theme.gentie_productKey %}
-      <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+    
     {% elseif theme.youyan_uid %}
       <div id="uyan_frame" style="padding: 0px 20px 0px 30px;"></div>
     {% elseif theme.livere_uid %}
