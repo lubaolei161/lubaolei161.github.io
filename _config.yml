@@ -101,5 +101,5 @@ algolia:
   chunkSize: 5000
 
 addlink:
-  before_text: 本文地址： # text before the post link
+  before_text:  # text before the post link
   after_text:
