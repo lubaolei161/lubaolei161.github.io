@@ -20,15 +20,7 @@
           <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
         </noscript>
       </div>
-    {% elseif theme.hypercomments_id %}
-      <div id="hypercomments_widget"></div>
-
-    {% elseif theme.youyan_uid %}
-      <div id="uyan_frame" style="padding: 0px 20px 0px 30px;"></div>
-    {% elseif theme.livere_uid %}
-      <div id="lv-container" data-id="city" data-uid="{{ theme.livere_uid }}"></div>
-    {% elseif theme.changyan.appid and theme.changyan.appkey %}
-      <div id="SOHUCS" sid= "{{ page.permalink }}" style="padding: 0px 20px 0px 30px;"></div>
+  
       {% elseif theme.gitment.enable and theme.gitment.username and theme.gitment.client_id and theme.gitment.client_secret %}
     <div id="gitment_container"></div>
   {% endif %}
