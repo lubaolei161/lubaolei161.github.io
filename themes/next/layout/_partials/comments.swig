@@ -22,7 +22,7 @@
       </div>
 
       {% elseif theme.gitment.enable and theme.gitment.username and theme.gitment.client_id and theme.gitment.client_secret %}
-    <div id="container"></div>
+    <div id="gitment_container"></div>
   {% endif %}
   </div>
 {% endif %}
