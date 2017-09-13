@@ -6,16 +6,33 @@
 		<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
 		<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
 		<script>
-			var gitment = new Gitment({
-			  //id: '页面 ID',
-			  owner: '{{username}}',
-			  repo: '{{username}}.github.io',
-			  oauth: {
-				client_id: '{{client_id}}',
-				client_secret: '{{client_secret}}'
-			  }
-			});
-			gitment.render('gitment_container');
-		</script>
+		  const myTheme = {
+		    render(state, instance) {
+		      const container = document.createElement('div');
+		      container.lang = "en-US";
+		      container.className = 'gitment-container gitment-root-container';
+		      container.appendChild(instance.renderHeader(state, instance));
+		      container.appendChild(instance.renderEditor(state, instance));
+		      container.appendChild(instance.renderComments(state, instance));
+		      container.appendChild(instance.renderFooter(state, instance));
+		      return container;
+		    }
+		  }
+		  function showGitment() {
+		    $("#gitment_title").attr("style", "display:none");
+		    $("#container").attr("style", "").addClass("gitment_container");
+		    var gitment = new Gitment({
+		      id: window.location.pathname,
+		      theme: myTheme,
+		      owner: '{{ theme.gitment.owner }}',
+		      repo: '{{ theme.gitment.repo }}',
+		      oauth: {
+		        client_id: '{{ theme.gitment.client_id }}',
+		        client_secret: '{{ theme.gitment.client_secret }}'
+		      }
+		    });
+		    gitment.render('container');
+		  }
+		  </script>
 	{% endif %}
 {% endif %}

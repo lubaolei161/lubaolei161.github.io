@@ -20,7 +20,7 @@
           <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
         </noscript>
       </div>
-  
+
       {% elseif theme.gitment.enable and theme.gitment.username and theme.gitment.client_id and theme.gitment.client_secret %}
     <div id="gitment_container"></div>
   {% endif %}
