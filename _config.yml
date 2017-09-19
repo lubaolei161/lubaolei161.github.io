@@ -13,9 +13,8 @@ avatar: https://github.com/lubaolei161/blogMaterial/blob/master/%E5%A4%B4%E5%83%
 ## 如果您的网站存放在子目录中，例如 http://yoursite.com/blog，则请将您的 url 设为 http://yoursite.com/blog 并把 root 设为 /blog/。
 url: http://barrysite.me
 root: /
-#permalink: :year/:month/:day/:title/    #生成文件名字的格式我改成blog/:title:year:month:day/
+permalink: :year/:month/:day/:title/    #生成文件名字的格式我改成blog/:title:year:month:day/
 # permalink: :title.html
-permalink: posts/:abbrlink/
 permalink_defaults:
 
 # Directory 目录配置
@@ -101,7 +100,4 @@ algolia:
   indexName: 'barrysite'
   chunkSize: 5000
 
-# abbrlink config
-abbrlink:
-  alg: crc32  #support crc16(default) and crc32
-  rep: hex    #support dec(default) and hex
+
