@@ -1,13 +1,13 @@
 ---
-title: "Hexo Next主题增加留言页"
+title: Hexo Next主题增加留言页
 comments: true
-date: 2017-05-08 
-type: "categories"
-categories: "github博客搭建" #文章分類目錄 可以省略
-tags: #文章標籤 可以省略
-     - github
-description: #你對本頁的描述 可以省略
-
+type: categories
+categories: github博客搭建
+tags:
+  - github
+abbrlink: 18730
+date: 2017-05-08 00:00:00
+description:
 ---
 
 ### 修改_config.yml

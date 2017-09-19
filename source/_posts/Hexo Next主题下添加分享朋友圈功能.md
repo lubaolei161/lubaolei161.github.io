@@ -1,12 +1,13 @@
 ---
-title: "Hexo Next主题下添加分享朋友圈功能"
+title: Hexo Next主题下添加分享朋友圈功能
 comments: true
-date: 2017-05-07
-type: "categories"
-categories: "github博客搭建" #文章分類目錄 可以省略
-tags: #文章標籤 可以省略
-     - github
-description: #你對本頁的描述 可以省略
+type: categories
+categories: github博客搭建
+tags:
+  - github
+abbrlink: 51592
+date: 2017-05-07 00:00:00
+description:
 ---
 
 偶尔写点东西还是需要分享下到朋友圈啥的，但是现在天朝管制比较厉害，像为知笔记，以前免费版本就可以分享笔记到朋友圈，现在都要收费了，印象笔记在天朝无论是不是会员，这功能就直接给阉割了。。那自己的博客难道不能了么，大约查了下，如果想分享，域名还要去备案，我靠，备案，那得多麻烦。。或者自己接微信API开发吧，那就头大了。

@@ -1,13 +1,13 @@
 ---
-title: " mac iterm2 安装 lrzsz rz sz命令"
+title: ' mac iterm2 安装 lrzsz rz sz命令'
 comments: true
-date: 2017-08-30
-type: "categories"
-categories: "配置"
-tags: #文章標籤 可以省略
-     - mac
+type: categories
+categories: 配置
+tags:
+  - mac
 description: iterm2 加入sz rz命令支持
-
+abbrlink: 31913
+date: 2017-08-30 00:00:00
 ---
 
 

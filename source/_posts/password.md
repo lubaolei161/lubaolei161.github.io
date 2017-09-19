@@ -1,13 +1,14 @@
 ---
 title: Hexo文章简单加密访问
-date: 2017-05-31
 tags: hexo
 categories: github博客搭建
 keywords:
-	- Hexo
-	- 加密
+  - Hexo
+  - 加密
 description: 网上找的简单的加密文章的办法，通过alert  实现
 password: password
+abbrlink: 20989
+date: 2017-05-31 00:00:00
 ---
 
 ### 网上找的简单的加密文章的办法，通过alert  实现

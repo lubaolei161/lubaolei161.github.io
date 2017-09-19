@@ -1,13 +1,13 @@
 ---
 title: 上传文件到github
 comments: true
-date: 2017-05-06
-type: "categories"
-categories: "github学习" #文章分類目錄 可以省略
-tags: #文章標籤 可以省略
-     - github
-description: #你對本頁的描述 可以省略
-
+type: categories
+categories: github学习
+tags:
+  - github
+abbrlink: 33472
+date: 2017-05-06 00:00:00
+description:
 ---
 
 ### 创建自己的github资源库

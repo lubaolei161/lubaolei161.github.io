@@ -1,13 +1,13 @@
 ---
 title: hive导出加入中文列名
 comments: true
-date: 2017-09-02
-type: "categories"
-categories: "hive" #文章分類目錄 可以省略
-tags: #文章標籤 可以省略
-     - hive
-description: #你對本頁的描述 可以省略
-
+type: categories
+categories: hive
+tags:
+  - hive
+abbrlink: 57395
+date: 2017-09-02 00:00:00
+description:
 ---
 
 

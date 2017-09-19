@@ -1,14 +1,16 @@
 ---
-title: "通过 Hexo 插件插入音乐/视频"
+title: 通过 Hexo 插件插入音乐/视频
 comments: true
-date: 2017-05-10 12:50:16
-type: "categories"
-categories: "github博客搭建" #文章分類目錄 可以省略
-tags: #文章標籤 可以省略
-     - github
-description: #你對本頁的描述 可以省略
+type: categories
+categories: github博客搭建
+tags:
+  - github
 photos:
-- http://opj0cbfmf.bkt.clouddn.com/3b292df5e0fe9925a0ff2f7a3ea85edf8db1712c.jpg
+  - >-
+    http://opj0cbfmf.bkt.clouddn.com/3b292df5e0fe9925a0ff2f7a3ea85edf8db1712c.jpg
+abbrlink: 62336
+date: 2017-05-10 12:50:16
+description:
 ---
 ### 关于音乐，视频添加
 虽然可以通过使用html标签的方式加入音乐，视频什么的，但是逼格不够高，还是研究下hexo自带的播放器插件。。

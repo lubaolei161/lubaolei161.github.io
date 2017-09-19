@@ -1,14 +1,14 @@
 ---
-title: "Hexo博客多台机器同步"
+title: Hexo博客多台机器同步
 comments: true
-date: 2017-05-31
-type: "categories"
-categories: "github博客搭建" #文章分類目錄 可以省略
-tags: #文章標籤 可以省略
-     - hexo
+type: categories
+categories: github博客搭建
+tags:
+  - hexo
 description: Hexo博客多台机器同步
 password: jqtb
-
+abbrlink: 37222
+date: 2017-05-31 00:00:00
 ---
 
 ### 思路

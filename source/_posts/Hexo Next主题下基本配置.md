@@ -1,12 +1,13 @@
 ---
-title: "Hexo Next主题下基本配置"
+title: Hexo Next主题下基本配置
 comments: true
-date: 2017-05-07
-type: "categories"
-categories: "github博客搭建" #文章分類目錄 可以省略
-tags: #文章標籤 可以省略
-     - github
-description: #你對本頁的描述 可以省略
+type: categories
+categories: github博客搭建
+tags:
+  - github
+abbrlink: 13704
+date: 2017-05-07 00:00:00
+description:
 ---
 
 关于Hexo 以及Next的一些基本设置参考官方文档

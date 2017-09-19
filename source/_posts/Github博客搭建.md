@@ -1,14 +1,15 @@
 ---
-title: "Github+Hexo+NEXT主题+域名绑定 博客搭建全记录"
+title: Github+Hexo+NEXT主题+域名绑定 博客搭建全记录
 comments: true
-date: 2017-05-07
-type: "categories"
-categories: "github博客搭建" #文章分類目錄 可以省略
-tags: #文章標籤 可以省略
-     - github
-description: #你對本頁的描述 可以省略
+type: categories
+categories: github博客搭建
+tags:
+  - github
 photos:
-- http://opj0cbfmf.bkt.clouddn.com/github+hexo.jpg
+  - 'http://opj0cbfmf.bkt.clouddn.com/github+hexo.jpg'
+abbrlink: 22765
+date: 2017-05-07 00:00:00
+description:
 ---
 
 Hexo是一个快速、简洁且高效的博客框架，而Github是一个免费的代码托管工具，利用Github Page可以免费创建一个静态网站。下面将介绍如何使用Hexo和Github，在Windows环境中搭建自己的微博

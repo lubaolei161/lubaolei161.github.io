@@ -1,11 +1,12 @@
 ---
 title: python读取hive数据库
 comments: true
+type: categories
+categories: python
+tags:
+  - 脚本
+abbrlink: 58671
 date: 2017-09-18 21:03:22
-type: "categories"
-categories: "python" #文章分類目錄 可以省略
-tags: #文章標籤 可以省略
-     - 脚本
 description:
 password:
 ---
