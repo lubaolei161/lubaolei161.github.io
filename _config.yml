@@ -16,6 +16,7 @@ root: /
 #permalink: :year/:month/:day/:title/    #生成文件名字的格式我改成blog/:title:year:month:day/
 # permalink: :title.html
 permalink: posts/:abbrlink/
+permalink: posts/:abbrlink/
 permalink_defaults:
 
 # Directory 目录配置
@@ -101,6 +102,7 @@ algolia:
   indexName: 'barrysite'
   chunkSize: 5000
 
-addlink:
-  before_text: 本文地址： # text before the post link
-  after_text: 转载请注明出处！
+# abbrlink config
+abbrlink:
+  alg: crc32  #support crc16(default) and crc32
+  rep: hex    #support dec(default) and hex
