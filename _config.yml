@@ -16,7 +16,6 @@ root: /
 #permalink: :year/:month/:day/:title/    #生成文件名字的格式我改成blog/:title:year:month:day/
 # permalink: :title.html
 permalink: posts/:abbrlink/
-permalink: posts/:abbrlink/
 permalink_defaults:
 
 # Directory 目录配置
