@@ -332,7 +332,7 @@ changyan:
 
 # Share
 jiathis:
-  enable: true
+  enable: false
 # Warning: JiaThis does not support https.
   add_this_id: 2132805
 
