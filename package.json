@@ -9,6 +9,7 @@
     "aplayer": "^1.6.0",
     "dplayer": "^1.1.4",
     "hexo": "^3.3.8",
+    "hexo-abbrlink": "^2.0.4",
     "hexo-addlink": "^1.0.4",
     "hexo-admin-qiniu": "^2.2.0",
     "hexo-algolia": "^0.1.1",
