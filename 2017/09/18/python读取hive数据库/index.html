@@ -89,7 +89,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hi,all" />
+  <meta name="keywords" content="脚本," />
 
 
 
@@ -105,16 +105,18 @@
 
 
 
-<meta name="description" content="日常折腾记录">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Barry">
-<meta property="og:url" content="http://barrysite.me/tags/hive/index.html">
+<meta name="description" content="sql定义用’’’ 不用” ,方便写长sql  ，变量替换 记得在变量外添加单引号  返回的列表是\t分割，与hive库里分隔符设置一致   1234567891011121314151617181920import osdef get_sql_result(sql):    data = os.popen(&quot;&quot;&quot;hive -e &quot;%s&quot; &quot;&quot;&quot;%(sql)).readlines()    r">
+<meta name="keywords" content="脚本">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python读取hive数据库">
+<meta property="og:url" content="http://barrysite.me/2017/09/18/python读取hive数据库/index.html">
 <meta property="og:site_name" content="Barry">
-<meta property="og:description" content="日常折腾记录">
+<meta property="og:description" content="sql定义用’’’ 不用” ,方便写长sql  ，变量替换 记得在变量外添加单引号  返回的列表是\t分割，与hive库里分隔符设置一致   1234567891011121314151617181920import osdef get_sql_result(sql):    data = os.popen(&quot;&quot;&quot;hive -e &quot;%s&quot; &quot;&quot;&quot;%(sql)).readlines()    r">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-09-19T10:04:39.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Barry">
-<meta name="twitter:description" content="日常折腾记录">
+<meta name="twitter:title" content="python读取hive数据库">
+<meta name="twitter:description" content="sql定义用’’’ 不用” ,方便写长sql  ，变量替换 记得在变量外添加单引号  返回的列表是\t分割，与hive库里分隔符设置一致   1234567891011121314151617181920import osdef get_sql_result(sql):    data = os.popen(&quot;&quot;&quot;hive -e &quot;%s&quot; &quot;&quot;&quot;%(sql)).readlines()    r">
 
 
 
@@ -142,7 +144,7 @@
 
 
 
-  <link rel="canonical" href="http://barrysite.me/tags/hive/"/>
+  <link rel="canonical" href="http://barrysite.me/2017/09/18/python读取hive数据库/"/>
 
 
 
@@ -162,7 +164,7 @@
     }
   })();
 </script>
-  <title> 标签: hive | Barry </title>
+  <title> python读取hive数据库 | Barry </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -187,7 +189,7 @@
     
   
 
-  <div class="container sidebar-position-right  ">
+  <div class="container sidebar-position-right page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -339,46 +341,243 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2 >
-        hive
-        <small>标签</small>
-      </h2>
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-categories " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://barrysite.me/2017/09/18/python读取hive数据库/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Barry">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://github.com/lubaolei161/blogMaterial/blob/master/%E5%A4%B4%E5%83%8F.png?raw=true">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Barry">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                python读取hive数据库
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-18T21:03:22+08:00">
+                2017-09-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/python/" itemprop="url" rel="index">
+                    <span itemprop="name">python</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <script src="/assets/js/APlayer.min.js"> </script><ul>
+<li><p>sql定义用’’’ 不用” ,方便写长sql  ，变量替换 记得在变量外添加单引号</p>
+</li>
+<li><p>返回的列表是\t分割，与hive库里分隔符设置一致</p>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> os</div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_sql_result</span><span class="params">(sql)</span>:</span></div><div class="line">    data = os.popen(<span class="string">"""hive -e "%s" """</span>%(sql)).readlines()</div><div class="line">    <span class="keyword">return</span> data</div><div class="line"></div><div class="line">sql=<span class="string">'''</span></div><div class="line"><span class="string">select * from dim_calendar_cctalk</span></div><div class="line"><span class="string">where ds='%s'</span></div><div class="line"><span class="string">limit 100;</span></div><div class="line"><span class="string">'''</span></div><div class="line"></div><div class="line">new_sql=sql%(<span class="string">'2017-09-10'</span>)</div><div class="line"></div><div class="line">data=get_sql_result(new_sql)</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">### 取第2列</span></div><div class="line"><span class="keyword">for</span> line <span class="keyword">in</span> data:</div><div class="line">    value=int(line.split(<span class="string">'\t'</span>)[<span class="number">1</span>].strip())</div><div class="line">    <span class="keyword">print</span> value</div></pre></td></tr></table></figure>
+<p>test <a href="http://barrysite.me/2017/09/18/python读取hive数据库/">http://barrysite.me/2017/09/18/python读取hive数据库/</a> </p>
+
+      
+    </div>
+
+    <div>
+      
+        
+<div style="text-align:center;color: #ccc;font-size:14px;">
+------ 本文结束 ------</div>
+<br/>
+<div style="border: 1px solid black">
+<div style="margin-left:10px">
+<span style="font-weight:blod">版权声明</span>
+<img src="" >
+<br/>
+<p style="font-size: 10px;line-height: 30px"><a href="http://barrysite.me/" style="color:#258FC6">Barry's blog</a> by <a href="http://barrysite.me/" style="color:#258FC6">Barry</a> is licensed under a <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" style="color:#258FC6">Creative Commons BY-NC-ND 4.0 International License</a>.<br/>
+由<a href="http://barrysite.me/" style="color:#258FC6">Barry</a>创作并维护的<a href="http://barrysite.me/" style="color:#258FC6">Barry's blog</a>博客采用<a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" style="color:#258FC6">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br/>
+本文首发于<a href="http://barrysite.me/" style="color:#258FC6">Barry</a> 博客（ <a href="http://barrysite.me/" style="color:#258FC6">http://barrysite.me/</a> ），如若转载请注明出处，版权所有，侵权必究。</p>
+</div>
+</div>
++
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>生活不易，求打赏红包~~</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/uploads/wechat-reward-image.JPG" alt="Barry WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/uploads/zfb.jpg" alt="Barry Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
     </div>
 
     
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/脚本/" rel="tag"># 脚本</a>
+          
+        </div>
       
 
-  <article class="post post-type-categories" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
+      
         
-            <a class="post-title-link" href="/2017/09/02/hive导出加入中文列名/" itemprop="url">
-              
-                <span itemprop="name">hive导出加入中文列名</span>
-              
-            </a>
-        
-      </h2>
+      
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-09-02T00:00:00+08:00"
-              content="2017-09-02" >
-          09-02
-        </time>
-      </div>
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/09/02/hive导出加入中文列名/" rel="next" title="hive导出加入中文列名">
+                <i class="fa fa-chevron-left"></i> hive导出加入中文列名
+              </a>
+            
+          </div>
 
-    </header>
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </article>
 
 
-    
-  </div>
 
-  
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style_32x32">
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a href="http://www.jiathis.com/share?uid=2132805" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript">
+var jiathis_config = {data_track_clickback:'true'};
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2132805" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+      
+    </div>
+  </div>
 
 
           </div>
@@ -386,6 +585,12 @@
 
 
           
+  <div class="comments" id="comments">
+    
+    <div id="gitment_container"></div>
+  
+  </div>
+
 
         </div>
         
@@ -578,6 +783,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
 
   
 
@@ -608,6 +817,14 @@
 
  
 
+      <!-- UY BEGIN -->
+
+      <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid="></script>
+
+      <!-- UY END -->
+
+  
+
 
 
 
@@ -618,6 +835,24 @@
 
 
 
+	
+		
+		
+		
+		<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+		<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+		<script>
+			var gitment = new Gitment({
+			  //id: '页面 ID',
+			  owner: 'lubaolei161',
+			  repo: 'lubaolei161.github.io',
+			  oauth: {
+				client_id: 'b4f5c6745356a34b6bbc',
+				client_secret: 'ac29c112b6df19d608431d46db3eac94d60c6e85'
+			  }
+			});
+			gitment.render('gitment_container');
+		</script>
 	
 
 

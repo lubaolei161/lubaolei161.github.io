@@ -1,1 +1,1 @@
-http://barrysite.me/2017/09/02/hive导出加入中文列名/
+http://barrysite.me/2017/09/18/python读取hive数据库/
