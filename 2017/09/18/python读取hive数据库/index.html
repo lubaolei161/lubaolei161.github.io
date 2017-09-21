@@ -113,7 +113,7 @@
 <meta property="og:site_name" content="Barry">
 <meta property="og:description" content="sql定义用’’’ 不用” ,方便写长sql  ，变量替换 记得在变量外添加单引号  返回的列表是\t分割，与hive库里分隔符设置一致   1234567891011121314151617181920import osdef get_sql_result(sql):    data = os.popen(&quot;&quot;&quot;hive -e &quot;%s&quot; &quot;&quot;&quot;%(sql)).readlines()    r">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-09-19T10:04:39.000Z">
+<meta property="og:updated_time" content="2017-09-21T08:57:11.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python读取hive数据库">
 <meta name="twitter:description" content="sql定义用’’’ 不用” ,方便写长sql  ，变量替换 记得在变量外添加单引号  返回的列表是\t分割，与hive库里分隔符设置一致   1234567891011121314151617181920import osdef get_sql_result(sql):    data = os.popen(&quot;&quot;&quot;hive -e &quot;%s&quot; &quot;&quot;&quot;%(sql)).readlines()    r">
@@ -452,28 +452,13 @@
 </li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> os</div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_sql_result</span><span class="params">(sql)</span>:</span></div><div class="line">    data = os.popen(<span class="string">"""hive -e "%s" """</span>%(sql)).readlines()</div><div class="line">    <span class="keyword">return</span> data</div><div class="line"></div><div class="line">sql=<span class="string">'''</span></div><div class="line"><span class="string">select * from dim_calendar_cctalk</span></div><div class="line"><span class="string">where ds='%s'</span></div><div class="line"><span class="string">limit 100;</span></div><div class="line"><span class="string">'''</span></div><div class="line"></div><div class="line">new_sql=sql%(<span class="string">'2017-09-10'</span>)</div><div class="line"></div><div class="line">data=get_sql_result(new_sql)</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">### 取第2列</span></div><div class="line"><span class="keyword">for</span> line <span class="keyword">in</span> data:</div><div class="line">    value=int(line.split(<span class="string">'\t'</span>)[<span class="number">1</span>].strip())</div><div class="line">    <span class="keyword">print</span> value</div></pre></td></tr></table></figure>
-<p>test <a href="http://barrysite.me/2017/09/18/python读取hive数据库/">http://barrysite.me/2017/09/18/python读取hive数据库/</a> </p>
 
       
     </div>
 
     <div>
       
-        
-<div style="text-align:center;color: #ccc;font-size:14px;">
------- 本文结束 ------</div>
-<br/>
-<div style="border: 1px solid black">
-<div style="margin-left:10px">
-<span style="font-weight:blod">版权声明</span>
-<img src="" >
-<br/>
-<p style="font-size: 10px;line-height: 30px"><a href="http://barrysite.me/" style="color:#258FC6">Barry's blog</a> by <a href="http://barrysite.me/" style="color:#258FC6">Barry</a> is licensed under a <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" style="color:#258FC6">Creative Commons BY-NC-ND 4.0 International License</a>.<br/>
-由<a href="http://barrysite.me/" style="color:#258FC6">Barry</a>创作并维护的<a href="http://barrysite.me/" style="color:#258FC6">Barry's blog</a>博客采用<a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" style="color:#258FC6">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br/>
-本文首发于<a href="http://barrysite.me/" style="color:#258FC6">Barry</a> 博客（ <a href="http://barrysite.me/" style="color:#258FC6">http://barrysite.me/</a> ），如若转载请注明出处，版权所有，侵权必究。</p>
-</div>
-</div>
-+
+        +
       
     </div>
 
@@ -560,21 +545,6 @@
 
 
     <div class="post-spread">
-      
-        <!-- JiaThis Button BEGIN -->
-<div class="jiathis_style_32x32">
-  <a class="jiathis_button_qzone"></a>
-  <a class="jiathis_button_tsina"></a>
-  <a class="jiathis_button_tqq"></a>
-  <a class="jiathis_button_weixin"></a>
-  <a href="http://www.jiathis.com/share?uid=2132805" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
-  <a class="jiathis_counter_style"></a>
-</div>
-<script type="text/javascript">
-var jiathis_config = {data_track_clickback:'true'};
-</script>
-<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2132805" charset="utf-8"></script>
-<!-- JiaThis Button END -->
       
     </div>
   </div>
