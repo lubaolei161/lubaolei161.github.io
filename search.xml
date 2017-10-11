@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[位运算在数据存储中应用]]></title>
+    <url>%2F2017%2F10%2F10%2F%E4%BD%8D%E4%B8%8E%E8%BF%90%E7%AE%97%E5%9C%A8%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8%2F</url>
+    <content type="text"><![CDATA[经常会遇到一个id 对应多个状态的情况发生，如果按照以往的数据存储习惯，假设id为a的数据有四种情况： id flag a 1 a 2 a 3 a 4 如果用状态位来表示这4种状态，事先定义好， 2^0 :1,2^1:2,2^2:3,2^3:4,之后把他们相加 可以得到总数 flag 二进制存储 1 0001=1 2 0010=2 3 0100=4 4 1000=8 之后相加的话得到总数： flag 二进制存储 15 1111 于是库里id存储可以变为： id flag_new a 15 这个10就已经代表了之前的4种状态，如果需要分别取其中的状态时候，只要相应位进行与运算即可。 比如从这张表中查找之前状态为2的数据： select id from t where id &amp; int(pow(2,2)) =int(pow(2,2)) 1111 &amp; 0010 =0010 代表flag=2 通过与运算就可以用一个状态位来表示多个状态，只要在相应的状态上有值就可以。]]></content>
+      <categories>
+        <category>数据库</category>
+      </categories>
+      <tags>
+        <tag>大数据</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[python读取hive数据库]]></title>
     <url>%2F2017%2F09%2F18%2Fpython%E8%AF%BB%E5%8F%96hive%E6%95%B0%E6%8D%AE%E5%BA%93%2F</url>
     <content type="text"><![CDATA[sql定义用’’’ 不用” ,方便写长sql ，变量替换 记得在变量外添加单引号 返回的列表是\t分割，与hive库里分隔符设置一致 1234567891011121314151617181920import osdef get_sql_result(sql): data = os.popen("""hive -e "%s" """%(sql)).readlines() return datasql='''select * from dim_calendar_cctalkwhere ds='%s'limit 100;'''new_sql=sql%('2017-09-10')data=get_sql_result(new_sql)### 取第2列for line in data: value=int(line.split('\t')[1].strip()) print value]]></content>
@@ -45,9 +56,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[Hexo博客多台机器同步]]></title>
-    <url>%2F2017%2F05%2F31%2Fhexo%E5%8D%9A%E5%AE%A2%E5%90%8C%E6%AD%A5%2F</url>
-    <content type="text"><![CDATA[思路hexo 发布到自己的master分支，然后将hexo源文件发布到hexo 分支 ，当换电脑之后拉下最新的hexo分支文件即可 准备工作不管是换到哪台电脑，nodeJs 还是要先装上，git也不必说 ，必然也要装上 之后就是选一个文件夹，然后clone 自己博客的hexo分支,并在这个文件夹下安装hexo以及hexo-deployer-git 1234567891011// npm install hexo-cli g// 在本地博客根目录下安装hexogit clone -b hexo https://github.com/myAccount/myAccount.github.io.git hexonpm install hexo// 初始化hexonpm init// 安装依赖npm install// 安装部署相关的配置npm install hexo-deployer-git 填坑之前一直以为装的插件也要重装一遍，其实完全不不要，只要上面代码过一遍即可，还算方便]]></content>
+    <title><![CDATA[Hexo文章简单加密访问]]></title>
+    <url>%2F2017%2F05%2F31%2Fpassword%2F</url>
+    <content type="text"><![CDATA[网上找的简单的加密文章的办法，通过alert 实现找到themes-&gt;next-&gt;layout-&gt;_partials-&gt;head.swig文件。按道理是添加在任何地方都行，但是推荐加在所有的标签之后，个人建议，仅做参考。以下是我加的代码： 12345678910&lt;script&gt; (function()&#123; if('&#123;&#123; page.password &#125;&#125;')&#123; if (prompt('请输入文章密码','') !== '&#123;&#123; page.password &#125;&#125;')&#123; alert('密码错误！'); history.back(); &#125; &#125; &#125;)();&lt;/script&gt; 使用时候，头部加入password标签，后面跟密码即可]]></content>
       <categories>
         <category>github博客搭建</category>
       </categories>
@@ -56,9 +67,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[Hexo文章简单加密访问]]></title>
-    <url>%2F2017%2F05%2F31%2Fpassword%2F</url>
-    <content type="text"><![CDATA[网上找的简单的加密文章的办法，通过alert 实现找到themes-&gt;next-&gt;layout-&gt;_partials-&gt;head.swig文件。按道理是添加在任何地方都行，但是推荐加在所有的标签之后，个人建议，仅做参考。以下是我加的代码： 12345678910&lt;script&gt; (function()&#123; if('&#123;&#123; page.password &#125;&#125;')&#123; if (prompt('请输入文章密码','') !== '&#123;&#123; page.password &#125;&#125;')&#123; alert('密码错误！'); history.back(); &#125; &#125; &#125;)();&lt;/script&gt; 使用时候，头部加入password标签，后面跟密码即可]]></content>
+    <title><![CDATA[Hexo博客多台机器同步]]></title>
+    <url>%2F2017%2F05%2F31%2Fhexo%E5%8D%9A%E5%AE%A2%E5%90%8C%E6%AD%A5%2F</url>
+    <content type="text"><![CDATA[思路hexo 发布到自己的master分支，然后将hexo源文件发布到hexo 分支 ，当换电脑之后拉下最新的hexo分支文件即可 准备工作不管是换到哪台电脑，nodeJs 还是要先装上，git也不必说 ，必然也要装上 之后就是选一个文件夹，然后clone 自己博客的hexo分支,并在这个文件夹下安装hexo以及hexo-deployer-git 1234567891011// npm install hexo-cli g// 在本地博客根目录下安装hexogit clone -b hexo https://github.com/myAccount/myAccount.github.io.git hexonpm install hexo// 初始化hexonpm init// 安装依赖npm install// 安装部署相关的配置npm install hexo-deployer-git 填坑之前一直以为装的插件也要重装一遍，其实完全不不要，只要上面代码过一遍即可，还算方便]]></content>
       <categories>
         <category>github博客搭建</category>
       </categories>

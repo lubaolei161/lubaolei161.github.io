@@ -1,1 +1,1 @@
-http://barrysite.me/2017/09/18/python读取hive数据库/
+http://barrysite.me/2017/10/10/位与运算在数据存储中的应用/
