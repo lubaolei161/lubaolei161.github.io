@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[连续数据最大个数计算]]></title>
+    <url>%2F2017%2F10%2F11%2F%E8%BF%9E%E7%BB%AD%E6%95%B0%E6%8D%AE%E6%9C%80%E5%A4%A7%E4%B8%AA%E6%95%B0%E8%AE%A1%E7%AE%97%2F</url>
+    <content type="text"><![CDATA[连续数据最大个数计算建立测试数据123456789101112131415161718192021222324252627282930313233343536373839404142434445create table test_numasselect 'a' id,1 num from dualunion allselect 'a' id,2 num from dualunion allselect 'a' id,3 num from dualunion allselect 'a' id,5 num from dualunion allselect 'a' id,6 num from dualunion allselect 'a' id,7 num from dualunion allselect 'b' id,1 num from dualunion allselect 'b' id,2 num from dualunion allselect 'b' id,5 num from dualunion allselect 'b' id,6 num from dualunion allselect 'b' id,7 num from dual 显示如图： 需要得到的结果应该是： id max（cn） a 3 b 3 分析实现数据连续，只要判断当前值和前一个值之间的差值是不是1就可以了，这一步通过分析函数lag 实现，要算连续的个数的话，可以对之前进行累加，如果数据是连续的，记为0，就是说之前的和是不变的，否则加1，再对和进行分组求总数，和的个数就是有几段是连续的，每一个和的个数就是在那一段连续的次数。 最终代码实现：123456789101112131415161718192021222324252627282930313233select id,max(cn) from(select id,sum_num,count(1) cn from(select id,num,num2,gap,sum(gap) over(partition by id order by num) sum_num from(select id,num,num2,case when num-num2=1 then 0 else 1 end gap from(select id,num,lag(num) over(partition by id order by num) num2 fromtest_num)t)t2)t3group by id,sum_num)t4group by id]]></content>
+      <categories>
+        <category>数据库</category>
+      </categories>
+      <tags>
+        <tag>大数据</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[位运算在数据存储中应用]]></title>
     <url>%2F2017%2F10%2F10%2F%E4%BD%8D%E4%B8%8E%E8%BF%90%E7%AE%97%E5%9C%A8%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8%2F</url>
     <content type="text"><![CDATA[经常会遇到一个id 对应多个状态的情况发生，如果按照以往的数据存储习惯，假设id为a的数据有四种情况： id flag a 1 a 2 a 3 a 4 如果用状态位来表示这4种状态，事先定义好， 2^0 :1,2^1:2,2^2:3,2^3:4,之后把他们相加 可以得到总数 flag 二进制存储 1 0001=1 2 0010=2 3 0100=4 4 1000=8 之后相加的话得到总数： flag 二进制存储 15 1111 于是库里id存储可以变为： id flag_new a 15 这个10就已经代表了之前的4种状态，如果需要分别取其中的状态时候，只要相应位进行与运算即可。 比如从这张表中查找之前状态为2的数据： select id from t where flag_new &amp; int(pow(2,2)) =int(pow(2,2)) 1111 &amp; 0010 =0010 代表flag=2 通过与运算就可以用一个状态位来表示多个状态，只要在相应的状态上有值就可以。]]></content>
